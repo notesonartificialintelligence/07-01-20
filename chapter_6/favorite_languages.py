@@ -3,21 +3,23 @@
 #Python Crash Course - Chapter 6
 
 favorite_languages = {
-	'jen': 'python',
+	'jen': ['python' , 'ruby'],
 	'sarah': 'c',
-	'edward': 'ruby',
-	'phil': 'python',
+	'edward': ['ruby' , 'go'],
+	'phil': ['python', 'haskell'],
 	}
 
 #Looping through all the keys and values in the dicionary.
 #The items() function will return a list of key-value pairs
 
-for name, language in favorite_languages.items():
-	print(f"{name.title()} favorite language is {language.title()}")
+for name, languages in favorite_languages.items():
+	if len(languages) > 1:
+		print(f"\n{name.title()}'s favorite languages are: ")
 
+		#We hold the variable languages becuase we know that the value will be a list, We then iterate through the list.
+		for language in languages:
+			print("\t" + language.title())
 
-#Only looping through the keys of the dictionary
-#Understand that you do not have to add the key function.
+	else:
+		print(f"\n{name.title()}'s favorite language is: {languages.title()} ")
 
-for name in favorite_languages.keys():
-	print(name.title())
