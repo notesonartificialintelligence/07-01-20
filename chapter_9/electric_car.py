@@ -2,37 +2,28 @@
 #notesonartificialintelligence
 #Python Crash Course - Chapter 9
 
-class Car:
-	"""A simple attempt represent a car."""
+from car import Car
 
-	def __init__(self,make,model,year):
-		"""Initalise attributes to describe a car."""
-		self.make = make
-		self.model = model
-		self.year = year
-		self.odometer_reading = 0
+class Battery:
+	"""A simple attempt to model a battery for an electric car."""
 
-	def get_descriptive_name(self):
-		"""Return a neatly formatted descriptive name."""
-		long_name = f"{self.year} {self.make} {self.model}"
-		return long_name.title()
+	def __init__(self, battery_size = 75):
+		"""Initialise the battery's attributes."""
+		self.battery_size = battery_size
 
-	def read_odometer(self):
-		"""Print a statement showing the car's mileage."""
-		print(f"This car has {self.odometer_reading} miles on it.")
+	def describe_battery(self):
+		"""Print a statement describing the battery size."""
+		print(f"This car has a {self.battery_size}-KWh battery.")
 
-	def update_odometer(self, mileage):
-		"""Set the odometer reading to the given value.
-			Rejec the change if it attempts to roll the odometer back.
-		"""
-		if mileage >= self.odometer_reading:
-			self.odometer_reading = mileage
-		else:
-			print("You can't roll back an odometer!")
+	def get_range(self):
+		"""Print a statement about the range this battery provides."""
+		if self.battery_size == 75:
+			range = 260
+		elif self.battery_size == 100:
+			range = 315
 
-	def increment_odometer(self, miles):
-		"""Ade the given amount to the odometer reading."""
-		self.odometer_reading += miles
+		print(f"This car can go about {range} miles on a full charge.")
+
 
 class ElectricCar(Car):
 	"""Represents aspects of a car, specific to electric vehicles."""
@@ -43,12 +34,4 @@ class ElectricCar(Car):
 		"""
 		super().__init__(make,model,year)
 		
-		self.battery_size = 75
-
-	def describe_battery(self):
-		"""Print a statement describing the battery size."""
-		print(f"This car has a {self.battery_size}-KWh battery.")
-
-my_tesla = ElectricCar('tesla', 'model s', 2020)
-print(my_tesla.get_descriptive_name())
-my_tesla.describe_battery()
+		self.battery = Battery()
