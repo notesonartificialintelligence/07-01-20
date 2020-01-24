@@ -1,0 +1,12 @@
+
+
+
+In Python you can work with: Variables and Simple Data Types 
+In Python you can work with: Introducing Lists
+In Python you can work with: Working with Lists 
+In Python you can work with: if Statements 
+In Python you can work with: Dictionaries
+In Python you can work with: User Input and while Loops
+In Python you can work with: Functions
+In Python you can work with: Classes
+In Python you can work with: Files and Exceptions
